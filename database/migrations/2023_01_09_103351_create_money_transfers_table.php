@@ -11,9 +11,9 @@ return new class extends Migration
         Schema::create('money_transfers', function (Blueprint $table) {
             $table->id();
             $table->foreignID('sender_user_id')->references('id')->on('users');
-            $table->foreignID('sender_account_id')->references('id')->on('bank_accounts');
+            $table->foreignID('sender_account_id')->references('id')->on('accounts');
             $table->foreignID('receiver_user_id')->references('id')->on('users');
-            $table->foreignID('receiver_account_id')->references('id')->on('bank_accounts');
+            $table->foreignID('receiver_account_id')->references('id')->on('accounts');
             $table->integer('amount');
             $table->string('currency');
             $table->timestamps();

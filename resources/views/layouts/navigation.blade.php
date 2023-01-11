@@ -13,9 +13,22 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Home') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('accounts')" :active="request()->routeIs('accounts')">
+                        {{ __('Accounts') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('crypto-market')" :active="request()->routeIs('crypto-market')">
+                        {{ __('Crypto Market') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('trade-partners')" :active="request()->routeIs('trade-partners')">
+                        {{ __('Trade Partners') }}
                     </x-nav-link>
                 </div>
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -36,6 +49,10 @@
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link :href="'/dashboard'">
+                            {{ __('Home') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->

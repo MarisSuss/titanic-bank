@@ -27,8 +27,9 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main style="display: flex; flex-direction: column;">
                 {{ $slot }}
+                <p style="text-align: center; font-size: 20px">Made by Māris Suss | Powered by not sleeping</p>
             </main>
         </div>
     </body>

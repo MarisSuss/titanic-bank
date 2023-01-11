@@ -8,19 +8,19 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('bank_accounts', function (Blueprint $table) {
+        Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->foreignID('user_id')->references('id')->on('users');
+            $table->string('number')->unique();
             $table->string('label');
-            $table->string('name');
-            $table->string('currency');
-            $table->integer('balance');
+            $table->string('currency')->default('EUR');
+            $table->integer('balance')->default(0);
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('bank_accounts');
+        Schema::dropIfExists('accounts');
     }
 };

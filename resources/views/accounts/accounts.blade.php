@@ -1,8 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Home') }}
+            {{ __('Accounts') }}
         </h2>
+        <br>
+        <a href="">Add new account</a>
     </x-slot>
 
     <div class="py-12">
@@ -11,7 +13,8 @@
                 <div class="p-6 text-gray-900">
                     <ul>
                         @foreach($accounts as $account)
-                            <li>Account {{ $account->number }} balance: {{ number_format($account->balance / 100, 2)}} {{ $account->currency }}</li>
+                                <li>{{ $account->label }} | <a href="/accounts/{{ $account->id }}/edit">Edit label</a></li>
+                                <li>Account {{ $account->number }} balance: {{ number_format($account->balance / 100, 2)}} {{ $account->currency }}</li>
                         @endforeach
                     </ul>
                 </div>

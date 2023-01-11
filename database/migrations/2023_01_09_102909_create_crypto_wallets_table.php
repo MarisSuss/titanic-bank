@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('crypto_wallets', function (Blueprint $table) {
             $table->id();
-            $table->foreignID('account_id')->references('id')->on('bank_accounts');
+            $table->foreignID('account_id')->references('id')->on('accounts');
             $table->string('name');
             $table->string('symbol');
             $table->integer('price');
