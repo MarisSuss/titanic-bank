@@ -29,7 +29,11 @@
             <!-- Page Content -->
             <main style="display: flex; flex-direction: column;">
                 {{ $slot }}
-                <p style="text-align: center; font-size: 20px">Made by Māris Suss | Powered by not sleeping</p>
+                <p style="text-align: center; font-size: 20px; color: gray">
+                    <a href="https://lv.linkedin.com/in/m%C4%81ris-suss-4585a2133" target="_blank">
+                        Made by Māris Suss
+                    </a>
+                </p>
             </main>
         </div>
     </body>

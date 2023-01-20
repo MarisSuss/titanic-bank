@@ -21,4 +21,9 @@ class Account extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getBalanceFormatted(): string
+    {
+        return number_format($this->balance / 100, 2);
+    }
 }

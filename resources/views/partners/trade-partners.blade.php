@@ -3,6 +3,14 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Trade Partners') }}
         </h2>
+        <form action="/trade-partners" method="POST">
+            @csrf
+            <label for="search">Search for trade partner:</label>
+            <input type="text" name="search" placeholder="partner name" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <a href="/trade-partners/maris">Māris</a>
     </x-slot>
 
     <div class="py-12">

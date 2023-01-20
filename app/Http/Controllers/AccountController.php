@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\Collections\CurrenciesCollection;
+use http\Client\Curl\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,4 +39,24 @@ class AccountController extends Controller
 
         return redirect()->back();
     }
+
+    public function showAddAccountForm()
+    {
+        return view('accounts.add');
+    }
+
+    public function addAccount(Request $request): RedirectResponse
+    {
+        $account = (new Account())->fill([
+            'number' => 'TB-' . rand(1000000000, 9999999999),
+            'label' => $request->label,
+            'currency' => $request->currency,
+            'balance' => 0
+        ]);
+
+        Auth::user()->accounts()->save($account);
+
+        return redirect()->route('accounts');
+    }
+
 }
